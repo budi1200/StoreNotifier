@@ -3,7 +3,6 @@ package eu.slocraft.StoreNotifier;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.*;
-import java.util.Objects;
 
 import static org.bukkit.Bukkit.getLogger;
 
@@ -22,17 +21,15 @@ public class HttpHandler {
     }
 
     private void sendPOST(String color, String message) throws IOException, InterruptedException {
-        String json = new StringBuilder()
-                .append("{")
-                .append("\"embeds\": [")
-                .append("{")
-                .append("\"title\": \"Obvestilo nakupa v spletni trgovini\",")
-                .append("\"description\": \"").append(message).append("\",")
-                .append("\"color\": \"").append(color).append("\"")
-                .append("}")
-                .append("]")
-                .append("}")
-                .toString();
+        String json = "{" +
+                "\"embeds\": [" +
+                "{" +
+                "\"title\": \"Obvestilo nakupa v spletni trgovini\"," +
+                "\"description\": \"" + message + "\"," +
+                "\"color\": \"" + color + "\"" +
+                "}" +
+                "]" +
+                "}";
 
         //getLogger().info(json);
         String url = plugin.getConfig().getString("apikey_url");

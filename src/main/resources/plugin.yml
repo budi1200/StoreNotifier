@@ -1,0 +1,10 @@
+name: StoreNotifier
+main: eu.slocraft.StoreNotifier.Main
+api-version: 1.15
+version: 1.0-SNAPSHOT
+commands:
+  dispost:
+    description: This is a demo command.
+    usage: /dispost <string>
+    permission: postman.dispost
+    permission-message: You don't have dispost permission
